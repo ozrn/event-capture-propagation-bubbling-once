@@ -49,12 +49,14 @@
 
     const divs = document.querySelectorAll("div");
 
-    function logText() {
+    function logText(e) {
       console.log(this.classList.value); // it will trigger click events on the nested elements
+
+      e.stopPropagation(); // it stops bubbling this event up- it will no longer trigger events on the parents on the way on up!
     }
 
     divs.forEach(div => div.addEventListener("click", logText, {
-      capture:true  // we go one, two, three instead of going up three, two and one
+      //capture:true  we go one, two, three instead of going up three, two and one
     }));
 
 
