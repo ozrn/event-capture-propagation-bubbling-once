@@ -53,7 +53,9 @@
       console.log(this.classList.value); // it will trigger click events on the nested elements
     }
 
-    divs.forEach(div => div.addEventListener("click", logText));
+    divs.forEach(div => div.addEventListener("click", logText, {
+      capture:true  // we go one, two, three instead of going up three, two and one
+    }));
 
 
 
